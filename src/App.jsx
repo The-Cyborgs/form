@@ -3,6 +3,7 @@ import './App.css';
 import Switch1 from './components/Button';
 import Card from './components/Cardtv';
 import Loader from './components/Loader';
+import Social from './components/Social';
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -24,6 +25,7 @@ function App() {
           <h1 className='text-5xl text-center font-bold text-blue-500'>The Cyborgs</h1>
           <Card />
           <Switch1 />
+          <Social />
         </div>
       }
     </>
