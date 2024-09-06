@@ -1,22 +1,33 @@
-5
-import './App.css'
-import Switch1 from './components/Button'
-import Card from './components/Cardtv'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Switch1 from './components/Button';
+import Card from './components/Cardtv';
+import Loader from './components/Loader';
 
 function App() {
+  const [loader, setLoader] = useState(true);
 
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 2000); 
+
+  
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
-
-      <div className='flex flex-col items-center justify-center mt-60 max-sm:mr-14'>
-        <h1 className='text-xl text-center'>The cyborgs</h1>
-        <Card />
-       <Switch1 />
-      </div>
-
+      {loader ?  <div className=' flex flex-col items-center justify-center  mt-80'><Loader /> </div>:
+        <div className='flex flex-col items-center justify-center mt-60 max-sm:mr-14'>
+          <h1 className='text-xl text-center text-blue-500'>The Cyborgs</h1>
+          <Card />
+          <Switch1 />
+        </div>
+      }
     </>
-  )
+  );
 }
 
-export default App
+export default App;
