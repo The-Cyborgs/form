@@ -1,14 +1,21 @@
 // import React from "react";
 import styled from "styled-components";
+import { useState } from "react";
 
-const Switch1 = () => {
 
-    const btn = () =>{
-        console.log('clicked')
-      }
+    const Switch1 = () => {
+        const [showPopup, setShowPopup] = useState(false);
+      
+        const btn = () => {
+          setShowPopup(!showPopup); // Toggle the popup visibility
+        };
+
+
+
+
   return (
-    <StyledWrapper onClick={()=>btn()}>
-      <div className="toggle-container">
+    <StyledWrapper>
+      <div className="toggle-container" onClick={btn}>
         <input className="toggle-input" type="checkbox" />
         <div className="toggle-handle-wrapper">
           <div className="toggle-handle">
@@ -22,6 +29,26 @@ const Switch1 = () => {
           <div className="toggle-base-inside" />
         </div>
       </div>
+      {showPopup && (
+        <Popup>
+          <iframe
+            src="https://lu.ma/embed/event/evt-IyCf9HKQBipd9Gz/simple"
+            width="600"
+            height="450"
+            frameborder="0"
+            style={{
+              border: "1px solid #bfcbda88",
+              borderRadius: "4px",
+            }}
+            allowFullScreen
+            aria-hidden="false"
+            tabIndex="0"
+          ></iframe>
+          <button className="close-button" onClick={() => setShowPopup(false)}>
+            Close
+          </button>
+        </Popup>
+      )}
     </StyledWrapper>
   );
 };
@@ -194,6 +221,46 @@ const StyledWrapper = styled.div`
   transition: opacity 0.24s cubic-bezier(0.65, 1.35, 0.5, 1);
 }
 
+ /* Popup overlay */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+`;
+// Styled component for the Popup
+const Popup = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 620px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+  .close-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background: #d63534;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
 `;
 
 export default Switch1;
+
+
+
+
+
