@@ -5,20 +5,19 @@ const Social = () => {
   return (
     <StyledWrapper>
       <ul className="wrapper">
-        <a href="https://instagram.com/thecyborgs_official " target="_blank">
-        <li className="icon facebook">
-          <span className="tooltip">Facebook</span>
-          <svg
-          
-            viewBox="0 0 320 512"
-            height="1.2em"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
-          </svg>
-        </li>
-        </a>
+      <a href="https://www.linkedin.com/in/kartik-mehta-6729b0255/" target="_blank">
+  <li className="icon facebook">
+    <span className="tooltip">LinkedIn</span>
+    <svg
+      viewBox="0 0 448 512"
+      height="1.2em"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M100.28 448H7.4V148.9h92.78zM53.79 108.1C24.09 108.1 0 83.87 0 53.4S24.09-1.3 53.79-1.3c29.63 0 53.74 24.23 53.74 54.7 0 30.47-24.11 54.7-53.74 54.7zm394.21 339.9h-92.66V306.3c0-33.8-12.1-56.9-42.37-56.9-23.1 0-36.8 15.56-42.82 30.56-2.19 5.41-2.76 12.96-2.76 20.57v147.47h-92.8s1.23-239.3 0-264h92.78v37.43c12.3-19 34.25-46.1 83.34-46.1 60.81 0 106.4 39.65 106.4 124.81V448z" />
+    </svg>
+  </li>
+</a>
         <a href="https://x.com/thecyborgs_" target="_blank">
         <li className="icon twitter">
           <span className="tooltip">Twitter</span>
@@ -48,6 +47,7 @@ const Social = () => {
         </li>
         </a>
       </ul>
+      <p className="text-center my-4 ">made by ❤️ Cyborgs</p>
     </StyledWrapper>
   );
 };
