@@ -3,13 +3,34 @@ import styled from "styled-components";
 import { useState } from "react";
 
 
-const Switch1 = () => {
+const Switch1 = ({setButton}) => {
   const [showPopup, setShowPopup] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
   const btn = () => {
-    setShowPopup(!showPopup); // Toggle the popup visibility
+    setShowPopup(!showPopup); 
   };
 
+
+  const openPopup = () => {
+
+    setButton(true)
+
+    setTimeout(() => {
+      setIsOpen(true);
+    }, 1500);
+    setIsClosing(false); 
+  };
+  
+  const closePopup = () => {
+    setButton(false)
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 500); // Matching the duration of the closing animation (0.5s)
+  };
 
 
 
@@ -18,7 +39,7 @@ const Switch1 = () => {
      
 
         <StyledWrapper>
-          <div className="toggle-container " onClick={btn}>
+          <div className="toggle-container " onClick={isOpen ? closePopup : openPopup}>
             <input className="toggle-input" type="checkbox" />
             <div className="toggle-handle-wrapper">
               <div className="toggle-handle">
@@ -33,9 +54,10 @@ const Switch1 = () => {
             </div>
           </div>
         </StyledWrapper>
-        {showPopup && (
-          <div className=" h-full w-full lg:w-[700px] absolute flex justify-center items-start pb-24 pt-4 px-2" >
-            <Popup className="z-[1000] bg-white h-full w-full p-4 flex justify-center shadow-xl rounded-lg ">
+        {isOpen  && (
+          <div className=" h-full w-full lg:w-[700px] absolute flex justify-center items-start pb-24 pt-4 px-2 " >
+            <Popup className= {` z-[1000] bg-white h-full w-full p-4 flex justify-center shadow-xl rounded-lg animate-popOut  
+            ${isClosing ? "animate-popOutReverse" : "animate-popOut"} `}>
 
               <iframe
                 src="https://lu.ma/embed/event/evt-IyCf9HKQBipd9Gz/simple"
