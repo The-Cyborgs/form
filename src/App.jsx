@@ -7,17 +7,19 @@ import Social from './components/Social';
 
 function App() {
   const [loader, setLoader] = useState(true);
+  const [button, setButton] = useState(false);
+  
 
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(false);
-    }, 3000); 
-
-  
+    }, 3000);
+    
     return () => clearTimeout(timer);
   }, []);
 
+  
   return (
     <>
       {loader ?  <div className=' flex flex-col items-center justify-center h-screen'>
@@ -26,11 +28,15 @@ function App() {
         <div className='flex flex-col items-center justify-between h-screen border pb-8'>
           <div className='h-full flex justify-center items-center'>
 
-          <Card />
+          <Card 
+          button={button}
+          />
           </div>
 
 
-          <Switch1 />
+          <Switch1 
+          setButton = {(value) => setButton(value)}
+          />
         </div>
       }
       {/* <Social /> */}
