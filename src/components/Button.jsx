@@ -3,52 +3,60 @@ import styled from "styled-components";
 import { useState } from "react";
 
 
-    const Switch1 = () => {
-        const [showPopup, setShowPopup] = useState(false);
-      
-        const btn = () => {
-          setShowPopup(!showPopup); // Toggle the popup visibility
-        };
+const Switch1 = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const btn = () => {
+    setShowPopup(!showPopup); // Toggle the popup visibility
+  };
 
 
 
 
   return (
-    <StyledWrapper>
-      <div className="toggle-container" onClick={btn}>
-        <input className="toggle-input" type="checkbox" />
-        <div className="toggle-handle-wrapper">
-          <div className="toggle-handle">
-            <div className="toggle-handle-knob" />
-            <div className="toggle-handle-bar-wrapper">
-              <div className="toggle-handle-bar" />
+    <>
+     
+
+        <StyledWrapper>
+          <div className="toggle-container " onClick={btn}>
+            <input className="toggle-input" type="checkbox" />
+            <div className="toggle-handle-wrapper">
+              <div className="toggle-handle">
+                <div className="toggle-handle-knob" />
+                <div className="toggle-handle-bar-wrapper">
+                  <div className="toggle-handle-bar" />
+                </div>
+              </div>
+            </div>
+            <div className="toggle-base">
+              <div className="toggle-base-inside" />
             </div>
           </div>
-        </div>
-        <div className="toggle-base">
-          <div className="toggle-base-inside" />
-        </div>
-      </div>
-      {showPopup && (
-        <Popup>
-          
-          <iframe
-            src="https://lu.ma/embed/event/evt-IyCf9HKQBipd9Gz/simple"
-            width="300"
-            height="400"
-            frameborder="0"
-            style={{
-              border: "1px solid #bfcbda88",
-              borderRadius: "4px",
-            }}
-            allowFullScreen
-            aria-hidden="false"
-            tabIndex="0"
-          ></iframe>
-         
-        </Popup>
-      )}
-    </StyledWrapper>
+        </StyledWrapper>
+        {showPopup && (
+          <div className=" h-full w-full lg:w-[700px] absolute flex justify-center items-start pb-24 pt-4 px-2" >
+            <Popup className="z-[1000] bg-white h-full w-full p-4 flex justify-center shadow-xl rounded-lg ">
+
+              <iframe
+                src="https://lu.ma/embed/event/evt-IyCf9HKQBipd9Gz/simple"
+                // width="300"
+                // height="600"
+                className="h-full w-full"
+                frameborder="0"
+                style={{
+                  border: "1px solid #bfcbda88",
+                  borderRadius: "4px",
+                }}
+                allowFullScreen
+                aria-hidden="false"
+                tabIndex="0"
+              ></iframe>
+
+            </Popup>
+          </div>
+        )}
+      
+    </>
   );
 };
 
@@ -236,21 +244,20 @@ const StyledWrapper = styled.div`
 `;
 // Styled component for the Popup
 const Popup = styled.div`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 340px;
-  padding: 20px;
-  background: white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  
+  // position: absolute;
+  // top: 40%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // width: 340px;
+  // padding: 20px;
+  // background: white;
+  // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  // z-index: 1000;
   
   `
 
-  
-;
+
+  ;
 
 export default Switch1;
 

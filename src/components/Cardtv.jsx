@@ -80,8 +80,8 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30em;
-  height: 30em;
+  // width: 30em;
+  // height: 30em;
 }
 
 .main {
