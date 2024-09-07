@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(false);
-    }, 2000); 
+    }, 5000); 
 
   
     return () => clearTimeout(timer);
@@ -20,12 +20,11 @@ function App() {
 
   return (
     <>
-      {loader ?  <div className=' flex flex-col items-center justify-center  mt-80'><Loader /> </div>:
-        <div className='flex flex-col items-center justify-center mt-40 max-sm:mr-14'>
-          <h1 className='text-5xl text-center font-bold text-blue-500'>The Cyborgs</h1>
+      {loader ?  <div className=' flex flex-col items-center justify-center  h-screen'><Loader /> </div>:
+        <div className='flex flex-col items-center justify-center h-screen'>
           <Card />
           <Switch1 />
-          <Social />
+          {/* <Social /> */}
         </div>
       }
     </>
