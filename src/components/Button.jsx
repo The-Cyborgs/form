@@ -31,10 +31,11 @@ import { useState } from "react";
       </div>
       {showPopup && (
         <Popup>
+          
           <iframe
             src="https://lu.ma/embed/event/evt-IyCf9HKQBipd9Gz/simple"
-            width="600"
-            height="450"
+            width="300"
+            height="400"
             frameborder="0"
             style={{
               border: "1px solid #bfcbda88",
@@ -44,9 +45,7 @@ import { useState } from "react";
             aria-hidden="false"
             tabIndex="0"
           ></iframe>
-          <button className="close-button" onClick={() => setShowPopup(false)}>
-            Close
-          </button>
+         
         </Popup>
       )}
     </StyledWrapper>
@@ -237,26 +236,21 @@ const StyledWrapper = styled.div`
 `;
 // Styled component for the Popup
 const Popup = styled.div`
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 620px;
+  width: 340px;
   padding: 20px;
   background: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  
+  
+  `
 
-  .close-button {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border: none;
-    background: #d63534;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-`;
+  
+;
 
 export default Switch1;
 
