@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-const Typewriter = () => {
-   
-  const text = 'Connecting you to the Cyborg World...'  
+const Typewriter = ({ hideText }) => {
+
+  const text = 'Connecting you to the Cyborg World...'
   const [displayedText, setDisplayedText] = useState('');
   const [isCursorVisible, setIsCursorVisible] = useState(true);
-  const typingSpeed = 100; 
-  const cursorBlinkSpeed = 500; 
+  const typingSpeed = 100;
+  const cursorBlinkSpeed = 500;
 
   useEffect(() => {
     let index = 0;
@@ -14,7 +14,7 @@ const Typewriter = () => {
     let blinkInterval;
 
     const type = () => {
-      if (index < text.length) {
+      if (index < text.length - 1) {
         setDisplayedText((prev) => prev + text[index]);
         index++;
         typingTimeout = setTimeout(type, typingSpeed);
@@ -35,7 +35,12 @@ const Typewriter = () => {
 
   return (
     <div className="p-2 pt-6 w-full relative overflow-hidden">
-      <p className="text-sm whitespace-pre-wrap text-[#08ff08]">{displayedText}</p>
+      <p className={`text-sm whitespace-pre-wrap text-[#08ff08] 
+      ${hideText ? 'opacity-0' : 'opacity-100'}
+      `}
+      >
+        {displayedText}
+      </p>
       <div
         className={`absolute bottom-2 right-2 h-6 w-1 ${isCursorVisible ? 'block' : 'hidden'}`}
         style={{

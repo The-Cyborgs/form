@@ -58,7 +58,7 @@ const Switch1 = ({setButton}) => {
             </div>
           </div>
         </StyledWrapper>
-        {isOpen  && (
+        {/* {isOpen  && (
           <div className=" h-full w-full lg:w-[700px] absolute flex justify-center items-start pb-24 pt-4 px-2 " >
             <Popup className= {` z-[1000] bg-white h-full w-full p-4 flex justify-center shadow-xl rounded-lg animate-popOut  
             ${isClosing ? "animate-popOutReverse" : "animate-popOut"} `}>
@@ -80,7 +80,7 @@ const Switch1 = ({setButton}) => {
 
             </Popup>
           </div>
-        )}
+        )} */}
       
     </>
   );
