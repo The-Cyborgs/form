@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Pyramid from "./Pyramid";
 import Typewriter from "./TypeWriter";
 
-const Card = ({ button }) => {
+const Card = ({ button, hideText }) => {
+
+  const [shake, setShake] = useState(false);
+
+  useEffect(() => {
+
+    if (button) {
+      
+      const shakeTimeout = setTimeout(() => {
+        setShake(true);
+      }, 4500);
+      
+      return () => {
+        clearTimeout(shakeTimeout);
+      };
+    }
+  }, [button]);
+
   return (
-    <StyledWrapper>
+    <StyledWrapper className={`${shake ? 'animate-shake' : ''}`}>
       <div className="main_wrapper">
         <div className="main">
           <div className="antenna">
@@ -37,8 +54,15 @@ const Card = ({ button }) => {
 
 
                     <div className="screen-2">
-                    {/* <Pyramid /> */}
-                    <Typewriter  />
+                      {/* <div className="absolute pyramid flex justify-center items-center opacity-15">
+
+                    <Pyramid />
+                      </div> */}
+
+
+                      <Typewriter 
+                      hideText={hideText}
+                      />
                     </div>
                     :
                     <div className="screen">
@@ -324,6 +348,11 @@ const StyledWrapper = styled.div`
   font-weight: bold;
   color: #252525;
   letter-spacing: 0.15em;
+}
+
+.pyramid {
+  width: 11em;
+  height: 7.85em;
 }
 
 
