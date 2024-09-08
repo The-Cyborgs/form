@@ -8,6 +8,7 @@ const Switch1 = ({setButton}) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [btnDisable, setBtnDisable] = useState(false)
 
   const btn = () => {
     setShowPopup(!showPopup); 
@@ -16,11 +17,14 @@ const Switch1 = ({setButton}) => {
 
   const openPopup = () => {
 
-    setButton(true)
+    setButton(true);
+
+    setBtnDisable(true);
 
     setTimeout(() => {
       setIsOpen(true);
-    }, 1500);
+      setBtnDisable(false);
+    }, 4200);
     setIsClosing(false); 
   };
   
@@ -39,8 +43,8 @@ const Switch1 = ({setButton}) => {
      
 
         <StyledWrapper>
-          <div className="toggle-container " onClick={isOpen ? closePopup : openPopup}>
-            <input className="toggle-input" type="checkbox" />
+          <div className="toggle-container" >
+            <input className="toggle-input" type="checkbox" onClick={isOpen ? closePopup : openPopup} disabled={btnDisable}/>
             <div className="toggle-handle-wrapper">
               <div className="toggle-handle">
                 <div className="toggle-handle-knob" />

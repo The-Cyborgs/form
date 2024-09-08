@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Pyramid from "./Pyramid";
+import Typewriter from "./TypeWriter";
 
 const Card = ({ button }) => {
   return (
@@ -36,15 +37,11 @@ const Card = ({ button }) => {
 
 
                     <div className="screen-2">
-                    <Pyramid />
+                    {/* <Pyramid /> */}
+                    <Typewriter  />
                     </div>
                     :
                     <div className="screen">
-
-                      {/* 
-                    {button ?
-                      <span className="notfound_text">CONNECTED ✅</span> :
-                    } */}
                       <span className="notfound_text"> NOT FOUND</span>
                     </div>
 
@@ -289,12 +286,13 @@ const StyledWrapper = styled.div`
   height: 7.85em;
   font-family: Montserrat;
   border: 2px solid #1d0e01;
-  background: repeating-radial-gradient(#000 0 0.0001%, #ffffff 0 0.0002%) 50% 0/2500px
-      2500px,
-    repeating-conic-gradient(#000 0 0.0001%, #ffffff 0 0.0002%) 60% 60%/2500px
-      2500px;
-  background-blend-mode: difference;
-  animation: b 0.2s infinite alternate;
+  // background: repeating-radial-gradient(#000 0 0.0001%, #ffffff 0 0.0002%) 50% 0/2500px
+  //     2500px,
+  //   repeating-conic-gradient(#000 0 0.0001%, #ffffff 0 0.0002%) 60% 60%/2500px
+  //     2500px;
+  background: url('noiseBg.png');
+  // background-blend-mode: difference;
+  // animation: b 0.2s infinite alternate;
   border-radius: 10px;
   z-index: 99;
   display: flex;
@@ -305,11 +303,11 @@ const StyledWrapper = styled.div`
   letter-spacing: 0.15em;
   text-align: center;
 }
-@keyframes b {
-  100% {
-    background-position: 50% 0, 60% 50%;
-  }
-}
+// @keyframes b {
+//   100% {
+//     background-position: 50% 0, 60% 50%;
+//   }
+// }
 
 .screen-2 {
   width: 11em;
@@ -317,17 +315,15 @@ const StyledWrapper = styled.div`
   font-family: Montserrat;
   border: 2px solid #1d0e01;
   background: black;
-  background-blend-mode: difference;
-  animation: b 0.2s infinite alternate;
   border-radius: 10px;
   z-index: 99;
   display: flex;
-  align-items: center;
+  // align-items: center;
+  padding: 4px
   justify-content: center;
   font-weight: bold;
   color: #252525;
   letter-spacing: 0.15em;
-  text-align: center;
 }
 
 
