@@ -4,21 +4,19 @@ import Switch1 from './components/Button';
 import Card from './components/Cardtv';
 import Form from './components/Form';
 import Loader from './components/Loader';
-import Pyramid from './components/Pyramid';
-import Social from './components/Social';
+import Stars from './components/Stars';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
 
-function App() {
+function Home() {
   const [loader, setLoader] = useState(true);
   const [button, setButton] = useState(false);
   const [hideTvDiv, setHideTvDiv] = useState(false);
   const [hideText, setHideText] = useState(false);
-
-
   const [blackout, setBlackout] = useState(false);
 
+  const navigate = useNavigate(); // use useNavigate hook for navigation
 
   useEffect(() => {
-
     if (button) {
       const blackoutTimeout = setTimeout(() => {
         setBlackout(true);
@@ -27,6 +25,7 @@ function App() {
 
       const hideDiv = setTimeout(() => {
         setHideTvDiv(true);
+        navigate('/register'); // navigate to /register when hideTvDiv becomes true
       }, 7200);
 
       return () => {
@@ -34,9 +33,7 @@ function App() {
         clearTimeout(hideDiv);
       };
     }
-  }, [button]);
-
-
+  }, [button, navigate]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,44 +43,54 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
     <>
-      {loader ? <div className=' flex flex-col items-center justify-center h-screen'>
-        <Loader />
-      </div> :
+      {loader ? (
+        <div className='flex flex-col items-center justify-center h-screen'>
+          <Loader />
+        </div>
+      ) : (
         <>
+          {hideTvDiv ? (
+            <div className='h-screen bg-black text-white'>
+              {/* <Form /> */}
+              <Stars />
+            </div>
+          ) : (
+            <div
+              className={`flex flex-col items-center justify-between h-screen pb-8 ${
+                blackout ? 'animate-blackout' : ''
+              }`}
+            >
+              <div className='h-full flex justify-center items-center'>
+                <Card button={button} hideText={hideText} />
+              </div>
 
-        {hideTvDiv ? 
-        <div className='h-screen bg-black text-white'>
-        <Form />
-        </div>
-        
-        :
-        <div className={`flex flex-col items-center justify-between h-screen pb-8 
-        ${blackout ? 'animate-blackout' : ''}         
-        `}>
-          <div className='h-full flex justify-center items-center'>
-
-            <Card
-              button={button}
-              hideText={hideText}
-            />
-          </div>
-
-
-          <Switch1
-            setButton={(value) => setButton(value)}
-          />
-        </div>
-        }
-        
+              <Switch1 setButton={(value) => setButton(value)} />
+            </div>
+          )}
         </>
-
-        
-      }
-      {/* <Social /> */}
+      )}
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/register"
+          element={
+            <div className='h-screen bg-black text-white'>
+              <Form />
+              <Stars />
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

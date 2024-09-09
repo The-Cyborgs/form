@@ -5,12 +5,12 @@ import styled from "styled-components";
 function Form() {
   return (
     <div>
-        <div className=" h-full w-full lg:w-[700px] absolute flex justify-center items-center py-12 px-2 animate-popOut " >
+        <div className=" h-full w-full lg:w-[700px] absolute flex justify-center items-center py-12 px-2 animate-popOut z-10" >
             {/* <Popup className= {` z-[1000] bg-white h-full w-full p-4 flex justify-center shadow-xl rounded-lg animate-popOut  
            `}> */}
 
               <iframe
-                src="https://lu.ma/embed/event/evt-IyCf9HKQBipd9Gz/simple"
+                src="https://lu.ma/embed/event/evt-EUCFFREUhCzhNqM/simple"
                 className="h-full w-full"
                 frameborder="0"
                 style={{
