@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Typewriter = ({ hideText }) => {
 
-  const text = 'Connecting you to the Cyborg World...'
+  const text = 'C0nnecting you to the Cyborg World...'
   const [displayedText, setDisplayedText] = useState('');
   const [isCursorVisible, setIsCursorVisible] = useState(true);
   const typingSpeed = 100;
