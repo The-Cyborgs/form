@@ -25,7 +25,7 @@ function Home() {
 
       const hideDiv = setTimeout(() => {
         setHideTvDiv(true);
-        navigate('/register'); // navigate to /register when hideTvDiv becomes true
+        navigate('/register'); 
       }, 7200);
 
       return () => {
