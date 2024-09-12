@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Typewriter = ({ hideText }) => {
 
-  const text = 'C0nnecting you to the Cyborg World...'
+  const text = 'Coonnecting you with the Cyborg World...'
   const [displayedText, setDisplayedText] = useState('');
   const [isCursorVisible, setIsCursorVisible] = useState(true);
   const typingSpeed = 100;
@@ -13,8 +13,12 @@ const Typewriter = ({ hideText }) => {
     let typingTimeout;
     let blinkInterval;
 
+    console.log('Displayed text', displayedText);
+
     const type = () => {
-      if (index < text.length - 1) {
+      
+      if (index < text.length-1 ) {
+        console.log(text[index]); 
         setDisplayedText((prev) => prev + text[index]);
         index++;
         typingTimeout = setTimeout(type, typingSpeed);
